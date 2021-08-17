@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>动画停止的案例</title>
+  <style>
+    body>ul>li ul{display: none;}
+  </style>
+</head>
+<body>
+  <ul>
+    <li>
+      <span>一级标题</span>
+      <ul>
+        <li>一级子节点</li>
+        <li>一级子节点</li>
+        <li>一级子节点</li>
+      </ul>
+    </li>
+    <li>
+      <span>二级标题</span>
+      <ul>
+        <li>二级子节点</li>
+        <li>二级子节点</li>
+        <li>二级子节点</li>
+      </ul>
+    </li>
+    <li>
+      <span>三级标题</span>
+      <ul>
+        <li>三级子节点</li>
+        <li>三级子节点</li>
+        <li>三级子节点</li>
+      </ul>
+    </li>
+  </ul>
+</body>
+</html>
+<script src="./jquery.js"></script>
+<script>
+  $("body").children("ul").children("li").mouseover(function(){
+    console.log($(this))
+    $(this).find("ul").stop(false, false).show(200);
+  }).mouseout(function () {
+    $(this).find("ul").stop(false, false).hide(200);
+  })
+</script>
